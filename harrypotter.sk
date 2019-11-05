@@ -108,7 +108,7 @@ command /reparo:
                 repair tool of all players within 1 meters of the event-location
 
 command /aberto:
-    aliases: /abe, /alohomora, /alo, /colloportus, /col, /cistemaperio, /ca
+    aliases: /abe, /alohomora, /alo, /colloportus, /col, /cistemaperio, /ca, /dissendium, /did
     trigger:
         if player is holding a stick:
             message "Alohomora!"
@@ -214,7 +214,7 @@ command /deprimo:
     trigger:
         if player is holding a stick:
 	    message "Deprimo!"
-	    make player shoot item slimeball
+	    make player shoot item projectile slimeball
 	    on item projectile hit:
 	        event-item is slimeball
 		create explosion with force 2 at event-location
@@ -223,8 +223,41 @@ command /descendo:
     aliases: /dsc
     trigger:
         if player is holding a stick:
-	message "Descendo!"
-	make player shoot item egg
-	on item projectile hit:
-	     event-item is egg
-	     remove levitation from all players within 10 meters of the event-location
+	    message "Descendo!"
+	    make player shoot item projectile egg
+	    on item projectile hit:
+	        event-item is egg
+	        remove levitation from all players within 10 meters of the event-location
+
+command /diffindo:
+    aliases: /dif
+    trigger:
+        if player is holding a stick:
+	    message "Diffindo!"
+	    make player shoot item projectile arrow
+	    on item projectile hit:
+	        event-item is arrow
+
+command /draconifors:
+    aliases: /drc
+    trigger:
+        if player is holding a stick:
+	    message "Draconifors!"
+	    spawn an ender_dragon 20 meters above player
+
+command /duckilifors:
+    aliases: /drc
+    trigger:
+        if player is holding a stick:
+	    message "Draconifors!"
+	    spawn a chicken 2 meters above player
+
+command /duro:
+    aliases: /dr
+    trigger:
+        if player is holding a stick:
+	    message "Duro!"
+	    make player shoot item projectile egg
+	    on item projectile hit:
+	        event-item is egg
+		enchant the player's tool with sharpness 5
