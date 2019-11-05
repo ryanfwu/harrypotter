@@ -218,3 +218,13 @@ command /deprimo:
 	    on item projectile hit:
 	        event-item is slimeball
 		create explosion with force 2 at event-location
+
+command /descendo:
+    aliases: /dsc
+    trigger:
+        if player is holding a stick:
+	message "Descendo!"
+	make player shoot item egg
+	on item projectile hit:
+	     event-item is egg
+	     remove levitation from all players within 10 meters of the event-location
