@@ -1,30 +1,32 @@
 command /enter:
    trigger:
-     world ul_Hogwarts1.0
+       world ul_Hogwarts1.0
 
 command /wand:
-   give player a stick
+   trigger:
+       give player a stick
 
 command /avadakedavra:
 	aliases: /ak
 	trigger:
-        if player is holding a stick:
-	    message "Avada Kedavra!"
-            make player shoot item projectile of slimeball at speed 1.5
-            play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
-            on item projectile hit:
-                event-item is slimeball
-                show 100 Slime particles at event-location offset by 1, 1, 1
-                show 300 Slime particles at event-location offset by -1, 0, -1
-                show 300 Slime particles at event-location offset by 1, 0, -1
-                show 300 Slime particles at event-location offset by -1, 0, 1
-                show 100 Slime particles at event-location offset by 0, 1, 0
-                show 100 Slime particles at event-location offset by -1, 1, -1
-                show 100 Slime particles at event-location offset by 1, 1, -1
-                show 100 Slime particles at event-location offset by -1, 1, 1
-                show 300 Slime particles at event-location offset by 0, 0, 0
-                play raw sound "portal.portal" at event-location with pitch 0.3 volume 10
-                kill all players within 5 meters of the event
+            if player is holding a stick:
+	        message "Avada Kedavra!"
+                make player shoot item projectile of slimeball at speed 1.5
+		play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
+		on damage:
+		    projectile exists
+		    projectile is a slimeball
+		    show 100 Slime particles at event-location offset by 1, 1, 1
+		    show 300 Slime particles at event-location offset by -1, 0, -1
+		    show 300 Slime particles at event-location offset by 1, 0, -1
+		    show 300 Slime particles at event-location offset by -1, 0, 1
+		    show 100 Slime particles at event-location offset by 0, 1, 0
+                    show 100 Slime particles at event-location offset by -1, 1, -1
+                    show 100 Slime particles at event-location offset by 1, 1, -1
+                    show 100 Slime particles at event-location offset by -1, 1, 1
+                    show 300 Slime particles at event-location offset by 0, 0, 0
+                    play raw sound "portal.portal" at event-location with pitch 0.3 volume 10
+                    kill all players within 5 meters of the event
 
 command /wingardiumleviosa:
     aliases: /wl
