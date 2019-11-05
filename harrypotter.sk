@@ -48,7 +48,7 @@ command /bombarda:
                 create explosion with force 3 at event-location
 
 command /bombardamaxima:
-    aliases: /bm
+    aliases: /bm, /expulso
     trigger:
         if player is holding a stick:
             message "Bombarda Maxima!"
@@ -292,7 +292,25 @@ command /evanesce:
 	    make player shoot item projectile egg
 	    on item projectile hit:
 	        event-item is egg
-		set {_block} to the block at location 1 in front of the event-item
+		set {_block} to the block at event-location
                 set the block at {_block} to air
 
+command /evertestatum:
+    aliases: /es
+    trigger:
+        if player is holding a stick:
+	    message "Everte Statum!"
+	    make player shoot item projectile slimeball
+	    on item projectile hit:
+	        event-item is slimeball
+		apply levitation 5 to all players within 2 meters of the event-location
 
+command /expectopatronum:
+     aliases: /ep
+     trigger:
+        if player is holding a stick:
+	    message "Expecto Patronum!"
+	    make player shoot item projectile slimeball
+	    on item projectile hit:
+	        event-item is arrow
+		kill all endermen within 20 meters of the event-location
