@@ -270,9 +270,29 @@ command /engorgio:
 	    message "Engorgio!"
 	    apply nausea 3 to player
 
-command /episky:
+command /episkey:
     aliases: /ep
     trigger:
         if player is holding a stick:
 	    message "Episky!"
 	    make player shoot item projectile strong_healing
+
+command /erecto:
+    aliases: /erect
+    trigger:
+        if player is holding a stick:
+	    message "Erecto!"
+	    message "You don't have enough material to build a tent."
+
+command /evanesce:
+    aliases: /eve, /evanesco
+    trigger:
+        if player is holding a stick:
+	    message "Evanesce!"
+	    make player shoot item projectile egg
+	    on item projectile hit:
+	        event-item is egg
+		set {_block} to the block at location 1 in front of the event-item
+                set the block at {_block} to air
+
+
