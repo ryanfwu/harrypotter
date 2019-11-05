@@ -35,8 +35,9 @@ command /wingardiumleviosa:
 	    message "Wingardium Leviosa!"
 	    make player shoot item projectile of glass at speed 1.5
 	    play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
-        on item projectile hit:
-            event-item is glass
+        on damage:
+	    projectile exists
+            projectile is glass
             apply levitation 3 to all players within 5 meters of the event-location
 
 command /bombarda:
@@ -45,8 +46,9 @@ command /bombarda:
         if player is holding a stick:
 	    message "Bombarda!"
             make player shoot item projectile of egg at speed 1.5
-            on item projectile hit:
-                event-item is egg
+            on damage:
+		projectile exists
+		projectile is egg
                 create explosion with force 3 at event-location
 
 command /bombardamaxima:
@@ -55,8 +57,9 @@ command /bombardamaxima:
         if player is holding a stick:
             message "Bombarda Maxima!"
 	    make player shoot item projectile of egg at speed 1.5
-            on item projectile hit:
-                event-item is egg
+            on damage:
+	        projectile exists
+                projectile is egg
                 create explosion with force 10 at event-location
 
 command /lumos:
@@ -85,8 +88,9 @@ command /crucio:
         if player is holding a stick:
 	    message "Crucio!"
             make player shoot item projectile of snowball at speed 1.5
-            on item projectile hit:
-                event-item is snowball
+            on damage:
+	        projectile exists
+                projectile is snowball
                 apply wither 5 to all players within 5 meters of the event-location
 
 command /expelliarmous:
@@ -95,8 +99,9 @@ command /expelliarmous:
         if player is holding a stick:
             message "Expelliarmous!"
             make player shoot item projectile of snowball at speed 1.5
-            on item projectile hit:
-                event-item is snowball
+            on damage:
+	        projectile exits
+		projectile is snowball
                 drop all items in the inventory of all players within 5 meters of the event-location
 
 command /reparo:
@@ -105,8 +110,9 @@ command /reparo:
         if player is holding a stick:
             message "Reparo!"
             make player shoot item projectile of snowball at speed 0.5
-            on item projectile hit:
-                event-item is snowball
+            on damage:
+	        projectile exists
+                projectile is snowball
                 repair tool of all players within 1 meters of the event-location
 
 command /aberto:
@@ -115,8 +121,9 @@ command /aberto:
         if player is holding a stick:
             message "Alohomora!"
             make player shoot item projectile of egg at speed 1.5
-            on item projectile hit:
-                event-item is egg
+            on damage:
+	        projectile exists
+                projectile is egg
                 toggle the block at event-location
 
 command /aguamenti:
@@ -124,7 +131,7 @@ command /aguamenti:
     trigger:
         if player is holding a stick:
             message "Aguamenti!"
-            make player shoot item water
+            set the block in front of the victim to water
 
 command /anapneo:
     aliases: /an
@@ -132,14 +139,10 @@ command /anapneo:
         if player is holding a stick:
 	    message "Anapneo!"
             make player shoot item projectile egg
-            on item projectile hit:
-                event-item is eggs
+            on damage:
+	        projectile exists
+                projectile is eggs
                 remove nausea from all players within 2 meters of the event-location
-        
-command /apparate x y z:
-    trigger:
-        play raw sound "portal.portal" at player with pitch 0.3 and volume 10
-        make player execute command "/tp x y z"
 
 command /araniaexumai:
     aliases: /ae
@@ -147,8 +150,9 @@ command /araniaexumai:
         if player is holding a stick:
 	    message "Arania Exumai!"
 	    make player shoot item projectile snowball
-	    on item projectile hit:
-	        event-item is eggs
+	    on damage:
+	        projectile exists
+	        projectile is eggs
 		kill all spiders within 10 meters of the event-location
 
 command /arrestomomentum:
@@ -157,8 +161,9 @@ command /arrestomomentum:
         if player is holding a stick:
 	    message "Arresto Momentum!"
 	    make player shoot item projectile snowball
-	    on item projectile hit:
-	        event-item is snowball
+	    on damage:
+	        projectile exists
+	        projectile is snowball
 		apply slowness 3 to all players within 20 meters of the event-location
 		apply feather falling to all players within 20 meters of the event-location
 
@@ -167,7 +172,7 @@ command /ascendio:
     trigger:
         if player is holding a stick:
 	    message "Ascendio!"
-	    apply levitation 250 to victim
+	    apply levitation 250 to target
 
 command /avifors:
     aliases: /av, /avis
@@ -175,14 +180,16 @@ command /avifors:
         if player is holding a stick:
 	    message "Avis!"
 	    spawn a parrot 3 meters above the player
+
 command /brackiumemendo:
     aliases: /bm
     trigger:
         if player is holding a stick:
-	    message "Anapneo!"
+	    message "Brackium Emendo!"
             make player shoot item projectile egg
-            on item projectile hit:
-                event-item is eggs
+            on damage:
+	        projectile exists
+                projectile is eggs
                 remove nausea from all players within 2 meters of the event-location
 
 command /caveinimicum:
@@ -198,8 +205,9 @@ command /confringo:
         if player is holding a stick:
 	    message "Confringo!"
 	    make player shoot item projectile slimeball
-	    on item projectile hit:
-	        event-item is slimeball
+	    on damage:
+	        projectile exists
+	        projectile is slimeball
 		create explosion with force 5 at event-location
 
 command /confundo:
@@ -208,8 +216,9 @@ command /confundo:
         if player is holding a stick:
 	    message "Confundo!"
 	    make player shoot item projectile egg
-	    on item projectile hit:
-	        event-item is egg
+	    on damage:
+	        projectile exists
+		projectile is egg
 		apply nausea 2 to all players within 5 meters of the event-location
 
 command /deprimo:
@@ -218,8 +227,9 @@ command /deprimo:
         if player is holding a stick:
 	    message "Deprimo!"
 	    make player shoot item projectile slimeball
-	    on item projectile hit:
-	        event-item is slimeball
+	    on damage:
+	        projectile exists
+	        projectile is slimeball
 		create explosion with force 2 at event-location
 
 command /descendo:
@@ -228,8 +238,9 @@ command /descendo:
         if player is holding a stick:
 	    message "Descendo!"
 	    make player shoot item projectile egg
-	    on item projectile hit:
-	        event-item is egg
+	    on damage:
+	        projectile exists
+	        projectile is egg
 	        remove levitation from all players within 10 meters of the event-location
 
 command /diffindo:
@@ -238,8 +249,9 @@ command /diffindo:
         if player is holding a stick:
 	    message "Diffindo!"
 	    make player shoot item projectile arrow
-	    on item projectile hit:
-	        event-item is arrow
+	    on damage:
+	        projectile exists
+	        projectile is arrow
 
 command /draconifors:
     aliases: /drc
@@ -252,7 +264,7 @@ command /duckilifors:
     aliases: /drc
     trigger:
         if player is holding a stick:
-	    message "Draconifors!"
+	    message "Duckilifors!"
 	    spawn a chicken 2 meters above player
 
 command /duro:
@@ -261,8 +273,9 @@ command /duro:
         if player is holding a stick:
 	    message "Duro!"
 	    make player shoot item projectile egg
-	    on item projectile hit:
-	        event-item is egg
+	    on damage:
+	        projectile exists
+	        projectile is egg
 		enchant the player's tool with sharpness 5
 
 command /engorgio:
@@ -292,10 +305,10 @@ command /evanesce:
         if player is holding a stick:
 	    message "Evanesce!"
 	    make player shoot item projectile egg
-	    on item projectile hit:
-	        event-item is egg
-		set {_block} to the block at event-location
-                set the block at {_block} to air
+	    on damage:
+	        projectile exists
+	        projectile is egg
+                set the block in front of the player to air
 
 command /evertestatum:
     aliases: /es
@@ -303,8 +316,9 @@ command /evertestatum:
         if player is holding a stick:
 	    message "Everte Statum!"
 	    make player shoot item projectile slimeball
-	    on item projectile hit:
-	        event-item is slimeball
+	    on damage:
+	        projectile exists
+	        projectile is slimeball
 		apply levitation 5 to all players within 2 meters of the event-location
 
 command /expectopatronum:
@@ -313,6 +327,7 @@ command /expectopatronum:
         if player is holding a stick:
 	    message "Expecto Patronum!"
 	    make player shoot item projectile slimeball
-	    on item projectile hit:
-	        event-item is arrow
+	    on damage:
+	        projectile exists
+	        projectile is slimeball
 		kill all endermen within 20 meters of the event-location
