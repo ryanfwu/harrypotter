@@ -9,7 +9,7 @@ command /avadakedavra:
 	aliases: /ak
 	trigger:
         if player is holding a stick:
-			message "Avada Kedavra!"
+	    message "Avada Kedavra!"
             make player shoot item projectile of slimeball at speed 1.5
             play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
             on item projectile hit:
@@ -30,9 +30,9 @@ command /wingardiumleviosa:
     aliases: /wl
     trigger:
         if player is holding a stick:
-			message "Wingardium Leviosa!"
-		make player shoot item projectile of glass at speed 1.5
-		play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
+	    message "Wingardium Leviosa!"
+	    make player shoot item projectile of glass at speed 1.5
+	    play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
         on item projectile hit:
             event-item is glass
             apply levitation 3 to all players within 5 meters of the event-location
@@ -41,7 +41,7 @@ command /bombarda:
     aliases: /bomb
     trigger:
         if player is holding a stick:
-			message "Bombarda!"
+	    message "Bombarda!"
             make player shoot item projectile of egg at speed 1.5
             on item projectile hit:
                 event-item is egg
@@ -51,8 +51,8 @@ command /bombardamaxima:
     aliases: /bm
     trigger:
         if player is holding a stick:
-			message "Bombarda Maxima!"
-		    make player shoot item projectile of egg at speed 1.5
+            message "Bombarda Maxima!"
+	    make player shoot item projectile of egg at speed 1.5
             on item projectile hit:
                 event-item is egg
                 create explosion with force 10 at event-location
@@ -61,20 +61,20 @@ command /lumos:
     aliases: /lm
     trigger:
         if player is holding a stick:
-			message "Lumos!"
-        apply night vision 50 to the player
+	    message "Lumos!"
+            apply night vision 50 to the player
 
 command /lumosmaxima:
     aliases: /lmm
     trigger:
         if player is holding a stick:
-			message "Lumos Maxima!"
+	    message "Lumos Maxima!"
             apply night vision 250 to the player
 
 command /nox:
     trigger:
         if player is holding a stick:
-			message "Nox!"
+	    message "Nox!"
             remove night vision from the player
 
 command /crucio:
@@ -183,10 +183,19 @@ command /brackiumemendo:
                 event-item is eggs
                 remove nausea from all players within 2 meters of the event-location
 
-command /caveinimicum
-    aliases: ci
+command /caveinimicum:
+    aliases: /ci
     trigger:
         if player is holding a stick:
+	    message "Cave Inimicum!"
 	    hide the player from all players
 
-
+command /confringo:
+    aliases: /cf
+    trigger:
+        if player is holding a stick:
+	    message "Confringo!"
+	    make player shoot item projectile slimeball
+	    on item projectile hit:
+	        event-item is slimeball
+		create explosion with force 5 at event-location
