@@ -146,4 +146,12 @@ command /araniaexumai:
 	        event-item is eggs
 		kill all spiders within 10 meters of the event-location
 
-
+command /arestomomentum:
+    aliases: /am
+    trigger:
+        if player is holding a stick:
+	    make player shoot item projectile snowball
+	    on item projectile hit:
+	        event-item is snowball
+		apply slowness 3 to all players within 20 meters of the event-location
+		apply feather falling to all players within 20 meters of the event-location
