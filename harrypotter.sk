@@ -1,0 +1,139 @@
+command /enter:
+   trigger:
+     world ul_Hogwarts1.0
+
+command /wand:
+   give player a stick
+
+command /avadakedavra:
+	aliases: /ak
+	trigger:
+        if player is holding a stick:
+			message "Avada Kedavra!"
+            make player shoot item projectile of slimeball at speed 1.5
+            play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
+            on item projectile hit:
+                event-item is slimeball
+                show 100 Slime particles at event-location offset by 1, 1, 1
+                show 300 Slime particles at event-location offset by -1, 0, -1
+                show 300 Slime particles at event-location offset by 1, 0, -1
+                show 300 Slime particles at event-location offset by -1, 0, 1
+                show 100 Slime particles at event-location offset by 0, 1, 0
+                show 100 Slime particles at event-location offset by -1, 1, -1
+                show 100 Slime particles at event-location offset by 1, 1, -1
+                show 100 Slime particles at event-location offset by -1, 1, 1
+                show 300 Slime particles at event-location offset by 0, 0, 0
+                play raw sound "portal.portal" at event-location with pitch 0.3 volume 10
+                kill all players within 5 meters of the event
+
+command /wingardiumleviosa:
+    aliases: /wl
+    trigger:
+        if player is holding a stick:
+			message "Wingardium Leviosa!"
+		make player shoot item projectile of glass at speed 1.5
+		play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
+        on item projectile hit:
+            event-item is glass
+            apply levitation 3 to all players within 5 meters of the event-location
+
+command /bombarda:
+    aliases: /bomb
+    trigger:
+        if player is holding a stick:
+			message "Bombarda!"
+            make player shoot item projectile of egg at speed 1.5
+            on item projectile hit:
+                event-item is egg
+                create explosion with force 3 at event-location
+
+command /bombardamaxima:
+    aliases: /bm
+    trigger:
+        if player is holding a stick:
+			message "Bombarda Maxima!"
+		    make player shoot item projectile of egg at speed 1.5
+            on item projectile hit:
+                event-item is egg
+                create explosion with force 10 at event-location
+
+command /lumos:
+    aliases: /lm
+    trigger:
+        if player is holding a stick:
+			message "Lumos!"
+        apply night vision 50 to the player
+
+command /lumosmaxima:
+    aliases: /lmm
+    trigger:
+        if player is holding a stick:
+			message "Lumos Maxima!"
+            apply night vision 250 to the player
+
+command /nox:
+    trigger:
+        if player is holding a stick:
+			message "Nox!"
+            remove night vision from the player
+
+command /crucio:
+    aliases: /cr
+    trigger:
+        if player is holding a stick:
+			message "Crucio!"
+            make player shoot item projectile of snowball at speed 1.5
+            on item projectile hit:
+                event-item is snowball
+                apply wither 5 to all players within 5 meters of the event-location
+
+command /expelliarmous:
+    aliases: /relashio
+    trigger:
+        if player is holding a stick:
+            message "Expelliarmous!"
+            make player shoot item projectile of snowball at speed 1.5
+            on item projectile hit:
+                event-item is snowball
+                drop all items in the inventory of all players within 5 meters of the event-location
+
+command /reparo:
+    aliases: /rp, /occulusreparo, /or
+    trigger:
+        if player is holding a stick:
+            message "Reparo!"
+            make player shoot item projectile of snowball at speed 0.5
+            on item projectile hit:
+                event-item is snowball
+                repair tool of all players within 1 meters of the event-location
+
+command /aberto:
+    aliases: /abe, /alohomora, /alo, /colloportus, /col
+    trigger:
+        if player is holding a stick:
+            message "Alohomora!"
+            make player shoot item projectile of egg at speed 1.5
+            on item projectile hit:
+                event-item is egg
+                toggle the block at event-location
+
+command /aguamenti:
+    aliases: /aq, /aquaeructo
+    trigger:
+        if player is holding a stick:
+            message "Aguamenti!"
+            make player shoot item water
+
+command /anapneo:
+    aliases: /an
+    trigger:
+        if player is holding a stick:
+            make player shoot item projectile egg
+            on item projectile hit:
+                event-item is eggs
+                remove nausea from all players within 2 meters of the event-location
+        
+command /apparate x y z:
+    trigger:
+        make player execute command "/tp x y z"
+
