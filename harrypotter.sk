@@ -173,4 +173,12 @@ command /avifors:
         if player is holding a stick:
 	    message "Avis!"
 	    spawn a parrot 3 meters above the player
-command /
+command /brackiumemendo:
+    aliases: /bm
+    trigger:
+        if player is holding a stick:
+	    message "Anapneo!"
+            make player shoot item projectile egg
+            on item projectile hit:
+                event-item is eggs
+                remove nausea from all players within 2 meters of the event-location
