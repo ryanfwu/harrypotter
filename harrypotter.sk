@@ -108,7 +108,7 @@ command /reparo:
                 repair tool of all players within 1 meters of the event-location
 
 command /aberto:
-    aliases: /abe, /alohomora, /alo, /colloportus, /col
+    aliases: /abe, /alohomora, /alo, /colloportus, /col, /cistemaperio, /ca
     trigger:
         if player is holding a stick:
             message "Alohomora!"
@@ -182,3 +182,11 @@ command /brackiumemendo:
             on item projectile hit:
                 event-item is eggs
                 remove nausea from all players within 2 meters of the event-location
+
+command /caveinimicum
+    aliases: ci
+    trigger:
+        if player is holding a stick:
+	    hide the player from all players
+
+
