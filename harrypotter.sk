@@ -199,6 +199,7 @@ command /confringo:
 	    on item projectile hit:
 	        event-item is slimeball
 		create explosion with force 5 at event-location
+
 command /confundo:
     aliases: /cnf
     trigger:
@@ -261,3 +262,17 @@ command /duro:
 	    on item projectile hit:
 	        event-item is egg
 		enchant the player's tool with sharpness 5
+
+command /engorgio:
+    aliases: /en
+    trigger:
+        if player is holding a stick:
+	    message "Engorgio!"
+	    apply nausea 3 to player
+
+command /episky:
+    aliases: /ep
+    trigger:
+        if player is holding a stick:
+	    message "Episky!"
+	    make player shoot item projectile strong_healing
