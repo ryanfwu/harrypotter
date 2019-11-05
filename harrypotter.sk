@@ -199,3 +199,22 @@ command /confringo:
 	    on item projectile hit:
 	        event-item is slimeball
 		create explosion with force 5 at event-location
+command /confundo:
+    aliases: /cnf
+    trigger:
+        if player is holding a stick:
+	    message "Confundo!"
+	    make player shoot item projectile egg
+	    on item projectile hit:
+	        event-item is egg
+		apply nausea 2 to all players within 5 meters of the event-location
+
+command /deprimo:
+    aliases: /dp
+    trigger:
+        if player is holding a stick:
+	    message "Deprimo!"
+	    make player shoot item slimeball
+	    on item projectile hit:
+	        event-item is slimeball
+		create explosion with force 2 at event-location
