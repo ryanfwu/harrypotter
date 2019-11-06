@@ -2,6 +2,10 @@ on place of tnt:
    cancel the event
    message "Warning: Do not place TNT blocks."
 
+on explode:
+   cancel the event
+   message "Warning: Do not explode anything."
+
 command /enter:
    trigger:
        world ul_Hogwarts1.0
@@ -333,3 +337,26 @@ command /expectopatronum:
 	        	projectile exists
 	        	projectile is slimeball
 			kill all endermen within 20 meters of the event-location
+
+command /apparate <x> <y> <z>:
+    aliases: /app
+	trigger:
+	    message "Apparating ..."
+		make player execute command "/tp <x> <y> <z>"
+
+command /firstyear <player>:
+    add "Skript.firstyear" to player's permissions
+command /secondyear <player>:
+    add "Skript.secondyear" to player's permissions
+command /thirdyear <player>:
+    add "Skript.thirdyear" to player's permissions
+command /fourthyear <player>:
+    add "Skript.fourthyear" to player's permissions
+command /fifthyear <player>:
+    add "Skript.fifthyear" to player's permissions
+command /sixthyear <player>:
+    add "Skript.sixthyear" to player's permissions
+command /seventhyear <player>:
+    add "Skript.seventhyear" to player's permissions
+command /adult <player>:
+    add "Skript.adult" to player's permissions
