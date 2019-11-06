@@ -388,3 +388,6 @@ at 10pm in "ul_Hogwarts1.0":
     broadcast "Lights out!"
 on endermen pickup:
 	cancel event
+
+on first join:
+	message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
