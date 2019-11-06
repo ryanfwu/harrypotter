@@ -360,3 +360,23 @@ command /seventhyear <player>:
     add "Skript.seventhyear" to player's permissions
 command /adult <player>:
     add "Skript.adult" to player's permissions
+
+on chat:
+    if player has permission "Skript.firstyear":
+    	set chat format to "First year studenet [player]: [message]"
+    if player has permission "Skript.secondyear":
+    	set chat format to "Second year student [player]: [message]"
+    if player has permission "Skript.thirdyear":
+    	set chat format to "Third year student [player]: [message]"
+    if player has permission "Skript.fourthyear":
+    	set chat format to "Fourth year student [player]: [message]"
+    if player has permission "Skript.fifthyear":
+    	set chat format to "Fifth year student [player]: [message]"
+    if player has permission "Skript.sixthyear":
+    	set chat format to "Sixth year student [player]: [message]"
+    if player has permission "Skript.secondyear":
+    	set chat format to "Seventh year student [player]: [message]"
+    if player has permission "Skript.adult":
+    	set chat format to "Wizard/Witch [player]: [message]"
+    else:
+        set chat format to "Muggle [player]: [message]"
