@@ -111,7 +111,7 @@ command /expelliarmous:
 				drop all items in the inventory of all players within 5 meters of the event-location
 
 command /reparo:
-	aliases: /rp, /occulusreparo, /or
+	aliases: /rp, /occulusreparo, /or, /harmonianecterepassus, /hnp
 	trigger:
 		if player is holding a stick:
 			message "Reparo!"
@@ -439,7 +439,7 @@ command /geminio:
 				give player %player's tool%
 
 command /glacius:
-	aliases: /gl,
+	aliases: /gl, /glaciusduo, /gld, /glaciustria, /glt
 	trigger:
 		if player is holding a stick:
 			message "Glacius!"
@@ -447,9 +447,7 @@ command /glacius:
 			on damage:
 				projectile exists
 				projectile is a snowball
-				apply slowness 20 to the target
-
-
+				apply slowness 30 to the target
 
 command /apparate <x> <y> <z>:
 	aliases: /app
