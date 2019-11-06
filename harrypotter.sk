@@ -449,6 +449,101 @@ command /glacius:
 				projectile is a snowball
 				apply slowness 30 to the target
 
+command /herbifors:
+	aliases: /her
+	trigger:
+		if player is holding a stick:
+			message "Herbifors!"
+			set the block above the player to peony
+
+command /herbivicus:
+	aliases: /hrb
+	trigger:
+		if player is holding a stick:
+			message "Herbivicus!"
+			loop blocks in radius 20 of player:
+				if loop-block is a sapling:
+					grow a tall oak tree above loop-block
+
+command /homenumrevelio:
+	aliases: /hr
+	trigger:
+		if player is holding a stick:
+			message "Homenum Revelio!"
+			apply effect glowing 1 to all players within 100 meters to the player
+
+command /immobulus:
+	aliases: /im
+	trigger:
+		if player is holding a stick:
+			message "Immobulus!"
+			apply effect slowness 20 to all entities within 10 meters to the player
+
+command /impedimenta:
+	aliases: /ipm
+	trigger:
+		if player is holding a stick:
+			message "Impedimenta!"
+			apply effect slowness 5 to all entities within 10 meters to the player
+
+command /imperio:
+	aliases: /imp
+	trigger:
+		if player is holding a stick:
+			message "Imperio!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				set {_imperio} to 1
+				while target exists and {_imperio} equals to 1:
+            				make target pathfind to player with speed 1
+            				wait 3 ticks
+
+command /unimperio:
+	aliases: /uni
+	trigger:
+		if player is holding a stick:
+			message "Unimperio!"
+			set {_imperio} to 0
+
+command /impervius:
+	aliases: /ipv
+	trigger:
+		if player is holding a stick:
+			message "Impervius!"
+			loop blocks in radius 20 around the player:
+				if loop-block is water:
+					set loop-block to air
+
+command /inanimatusconjurus <item>:
+	aliases: /ic <item>
+	trigger:
+		if player is holding a stick:
+			message "Inanimatus Conjurus!"
+			make console execute command "give %player% %item%"
+
+command /incarneous:
+	aliases: /inc
+	trigger:
+		if player is holding a stick:
+			message "Incarneous!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				apply slowness 3 to target
+				apply nausea 2 to target
+
+command /incendio:
+	aliases: /icd, /incendioduo, /incendiotria, /incd, /inct
+	trigger:
+		if player is holding a stick:
+			message "Incendio!"
+			make player shoot fireball at speed 10
+
+command /
+
 command /apparate <x> <y> <z>:
 	aliases: /app
 	trigger:
