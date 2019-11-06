@@ -1,10 +1,10 @@
 on place of tnt:
-   cancel the event
-   message "Warning: Do not place TNT blocks."
+	cancel the event
+	message "Warning: Do not place TNT blocks."
 
 on explode:
-   cancel the event
-   message "Warning: Do not explode anything."
+	cancel the event
+  	message "Warning: Do not explode anything."
 
 command /enter:
    trigger:
@@ -19,7 +19,7 @@ command /avadakedavra:
 	trigger:
 		if player is holding a stick:
 		message "Avada Kedavra!"
-		make player shoot item projectile of slimeball at speed 1.5
+		make player shoot of slimeball at speed 1.5
 		on damage:
 			projectile exists
 			projectile is a slimeball
@@ -39,7 +39,7 @@ command /wingardiumleviosa:
 	trigger:
 		if player is holding a stick:
 			message "Wingardium Leviosa!"
-			make player shoot item projectile of glass at speed 1.5
+			make player shoot of glass at speed 1.5
 			play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
 			on damage:
 		projectile exists
@@ -51,7 +51,7 @@ command /bombarda:
 	trigger:
 		if player is holding a stick:
 		message "Bombarda!"
-		make player shoot item projectile of egg at speed 1.5
+		make player shoot of egg at speed 1.5
 			on damage:
 		projectile exists
 		projectile is egg
@@ -62,7 +62,7 @@ command /bombardamaxima:
 	trigger:
 		if player is holding a stick:
 			message "Bombarda Maxima!"
-			make player shoot item projectile of egg at speed 1.5
+			make player shoot of egg at speed 1.5
 			on damage:
 				projectile exists
 				projectile is egg
@@ -93,7 +93,7 @@ command /crucio:
 	trigger:
 		if player is holding a stick:
 			message "Crucio!"
-			make player shoot item projectile of snowball at speed 1.5
+			make player shoot of snowball at speed 1.5
 			on damage:
 				projectile exists
 				projectile is snowball
@@ -104,7 +104,7 @@ command /expelliarmous:
 	trigger:
 		if player is holding a stick:
 			message "Expelliarmous!"
-			make player shoot item projectile of snowball at speed 1.5
+			make player shoot of snowball at speed 1.5
 			on damage:
 				projectile exits
 				projectile is snowball
@@ -115,7 +115,7 @@ command /reparo:
 	trigger:
 		if player is holding a stick:
 			message "Reparo!"
-			make player shoot item projectile of snowball at speed 0.5
+			make player shoot of snowball at speed 0.5
 			on damage:
 				projectile exists
 				projectile is snowball
@@ -126,7 +126,7 @@ command /aberto:
 	trigger:
 		if player is holding a stick:
 			message "Alohomora!"
-			make player shoot item projectile of egg at speed 1.5
+			make player shoot of egg at speed 1.5
 			on damage:
 				projectile exists
 				projectile is egg
@@ -144,7 +144,7 @@ command /anapneo:
 	trigger:
 		if player is holding a stick:
 		message "Anapneo!"
-			make player shoot item projectile egg
+			make player shoot egg
 			on damage:
 				projectile exists
 				projectile is eggs
@@ -155,7 +155,7 @@ command /araniaexumai:
 	trigger: 
 		if player is holding a stick:
 		message "Arania Exumai!"
-		make player shoot item projectile snowball
+		make player shoot snowball
 		on damage:
 			projectile exists
 			projectile is eggs
@@ -166,7 +166,7 @@ command /arrestomomentum:
 	trigger:
 		if player is holding a stick:
 		message "Arresto Momentum!"
-		make player shoot item projectile snowball
+		make player shoot snowball
 		on damage:
 			projectile exists
 			projectile is snowball
@@ -192,7 +192,7 @@ command /brackiumemendo:
 	trigger:
 		if player is holding a stick:
 			message "Brackium Emendo!"
-				make player shoot item projectile egg
+				make player shoot egg
 				on damage:
 					projectile exists
 					projectile is eggs
@@ -210,7 +210,7 @@ command /confringo:
 	trigger:
 		if player is holding a stick:
 		message "Confringo!"
-		make player shoot item projectile slimeball
+		make player shoot slimeball
 		on damage:
 			projectile exists
 			projectile is slimeball
@@ -221,7 +221,7 @@ command /confundo:
 	trigger:
 		if player is holding a stick:
 			message "Confundo!"
-			make player shoot item projectile egg
+			make player shoot egg
 			on damage:
 				projectile exists
 				projectile is egg
@@ -232,7 +232,7 @@ command /deprimo:
 	trigger:
 		if player is holding a stick:
 		message "Deprimo!"
-		make player shoot item projectile slimeball
+		make player shoot slimeball
 		on damage:
 			projectile exists
 			projectile is slimeball
@@ -243,7 +243,7 @@ command /descendo:
 	trigger:
 		if player is holding a stick:
 			message "Descendo!"
-			make player shoot item projectile egg
+			make player shoot egg
 			on damage:
 				projectile exists
 				projectile is egg
@@ -254,7 +254,7 @@ command /diffindo:
 	trigger:
 		if player is holding a stick:
 			message "Diffindo!"
-			make player shoot item projectile arrow
+			make player shoot arrow
 			on damage:
 				projectile exists
 				projectile is arrow
@@ -278,7 +278,7 @@ command /duro:
 	trigger:
 		if player is holding a stick:
 			message "Duro!"
-			make player shoot item projectile egg
+			make player shoot egg
 		on damage:
 			projectile exists
 			projectile is egg
@@ -296,7 +296,7 @@ command /episkey:
 	trigger:
 		if player is holding a stick:
 			message "Episky!"
-			make player shoot item projectile strong_healing
+			make player shoot strong_healing
 
 command /erecto:
 	aliases: /erect
@@ -310,7 +310,7 @@ command /evanesce:
 	trigger:
 		if player is holding a stick:
 			message "Evanesce!"
-			make player shoot item projectile egg
+			make player shoot egg
 			on damage:
 				projectile exists
 				projectile is egg
@@ -321,7 +321,7 @@ command /evertestatum:
 	trigger:
 		if player is holding a stick:
 			message "Everte Statum!"
-			make player shoot item projectile slimeball
+			make player shoot slimeball
 			on damage:
 				projectile exists
 				projectile is slimeball
@@ -332,11 +332,54 @@ command /expectopatronum:
 	 trigger:
 		if player is holding a stick:
 			message "Expecto Patronum!"
-			make player shoot item projectile slimeball
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is slimeball
+				projectile is snowball
 			kill all enderman within 20 meters of the event-location
+
+command /ferula:
+	aliases: /fr
+	trigger:
+		if player is holding a stick:
+			message "Ferula!"
+			remove slowness from the player
+			remove poison from the player
+			remove weakness from the player
+
+command /fiantoduri:
+	aliases: /fd
+	trigger:
+		if player is holding a stick:
+			message "Fianto Duri!"
+			hide the player from all players
+
+command /finestra:
+	aliases: /fin
+	trigger:
+		if player is holding a stick:
+			message "Finestra!"
+			make player shoot arrow
+			on damage:
+				projectile exists
+				projectile is an arrow
+				if target block is a glass:
+					set target block to air
+
+command /finiteincantatem:
+	aliases: /fni
+	trigger:
+		if player is holding a stick:
+			message "Finite Incantatem!"
+			remove all effects from all players within 10 meters to the player
+			
+command /flagrate:
+	aliases: /flg
+	trigger:
+		if player is holding a stick:
+			set the block two meters in front of the player to fire
+			
+
 
 command /apparate <x> <y> <z>:
 	aliases: /app
@@ -391,5 +434,6 @@ on endermen pickup:
 
 on first join:
 	message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
+
 
 
