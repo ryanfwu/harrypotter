@@ -336,7 +336,7 @@ command /expectopatronum:
 	    	on damage:
 	        	projectile exists
 	        	projectile is slimeball
-			kill all endermen within 20 meters of the event-location
+			kill all enderman within 20 meters of the event-location
 
 command /apparate <x> <y> <z>:
     aliases: /app
@@ -386,4 +386,5 @@ on disconnect:
 
 at 10pm in "ul_Hogwarts1.0":
     broadcast "Lights out!"
-
+on endermen pickup:
+	cancel event
