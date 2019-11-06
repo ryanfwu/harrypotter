@@ -415,9 +415,41 @@ command /flipendotria:
 
 command /fumos:
 	aliases: /fmo, /nebulus, /neb
-	trigger
+	trigger:
 		if player is holding a stick:
+			message "Fumos!"
 			display 20000 cloud particles at location of player
+
+command /fumosduo:
+	aliases: /fmd
+	trigger:
+		if player is holding a stick:
+			message "Fumos Duo!"
+			display 40000 cloud particles at location of player
+
+command /geminio:
+	aliases: /ge
+	trigger:
+		if player is holding a stick:
+			message "Geminio!"
+			make player shoot slimeball at speed 2
+			on damage:
+				projectile exists
+				projectile is a slimeball
+				give player %player's tool%
+
+command /glacius:
+	aliases: /gl,
+	trigger:
+		if player is holding a stick:
+			message "Glacius!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				apply slowness 20 to the target
+
+
 
 command /apparate <x> <y> <z>:
 	aliases: /app
