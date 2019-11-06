@@ -380,3 +380,10 @@ on chat:
     	set chat format to "Wizard/Witch [player]: [message]"
     else:
         set chat format to "Muggle [player]: [message]"
+
+on disconnect:
+    broadcast "%player% has quit the game."
+
+at 10pm in "ul_Hogwarts1.0":
+    broadcast "Lights out!"
+
