@@ -15,46 +15,46 @@ command /wand:
        give player a stick
 
 command /avadakedavra:
-	aliases: /ak
-	trigger:
-		if player is holding a stick:
-		message "Avada Kedavra!"
-		make player shoot item projectile of slimeball at speed 1.5
-		on damage:
-		    projectile exists
-		    projectile is a slimeball
-		    display 100 Slime particles at the targeted block offset by 1, 1, 1
-		    display 300 Slime particles at the targeted block offsett by -1, 0, -1
-		    display 300 Slime particles at the targeted block offset by 1, 0, -1
-		    display 300 Slime particles at the targeted block offset by -1, 0, 1
-		    display 100 Slime particles at the targeted block offset by 0, 1, 0
-			display 100 Slime particles at the targeted block offset by -1, 1, -1
-			display 100 Slime particles at the targeted block offset by 1, 1, -1
-			display 100 Slime particles at the targeted block offset by -1, 1, 1
-			display 300 Slime particles at the targeted block offset by 0, 0, 0
-			kill all players within 5 meters of the event
+    aliases: /ak
+    trigger:
+        if player is holding a stick:
+        message "Avada Kedavra!"
+        make player shoot item projectile of slimeball at speed 1.5
+        on damage:
+            projectile exists
+            projectile is a slimeball
+            display 100 Slime particles at the targeted block offset by 1, 1, 1
+            display 300 Slime particles at the targeted block offsett by -1, 0, -1
+            display 300 Slime particles at the targeted block offset by 1, 0, -1
+            display 300 Slime particles at the targeted block offset by -1, 0, 1
+            display 100 Slime particles at the targeted block offset by 0, 1, 0
+            display 100 Slime particles at the targeted block offset by -1, 1, -1
+            display 100 Slime particles at the targeted block offset by 1, 1, -1
+            display 100 Slime particles at the targeted block offset by -1, 1, 1
+            display 300 Slime particles at the targeted block offset by 0, 0, 0
+            kill all players within 5 meters of the event
 
 command /wingardiumleviosa:
     aliases: /wl
     trigger:
         if player is holding a stick:
-	    message "Wingardium Leviosa!"
-	    make player shoot item projectile of glass at speed 1.5
-	    play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
-        on damage:
-	    projectile exists
-		projectile is glass
-		apply levitation 3 to all players within 5 meters of the event-location
+            message "Wingardium Leviosa!"
+            make player shoot item projectile of glass at speed 1.5
+            play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
+            on damage:
+        projectile exists
+        projectile is glass
+        apply levitation 3 to all players within 5 meters of the event-location
 
 command /bombarda:
     aliases: /bomb
     trigger:
         if player is holding a stick:
-	    message "Bombarda!"
+        message "Bombarda!"
         make player shoot item projectile of egg at speed 1.5
             on damage:
-		projectile exists
-		projectile is egg
+        projectile exists
+        projectile is egg
                 create explosion with force 3 at event-location
 
 command /bombardamaxima:
@@ -62,40 +62,40 @@ command /bombardamaxima:
     trigger:
         if player is holding a stick:
             message "Bombarda Maxima!"
-	    	make player shoot item projectile of egg at speed 1.5
-        	on damage:
-	        	projectile exists
-            	projectile is egg
-            	create explosion with force 10 at event-location
+            make player shoot item projectile of egg at speed 1.5
+            on damage:
+                projectile exists
+                projectile is egg
+                create explosion with force 10 at event-location
 
 command /lumos:
     aliases: /lm
     trigger:
         if player is holding a stick:
-	    	message "Lumos!"
+            message "Lumos!"
             apply night vision 50 to the player
 
 command /lumosmaxima:
     aliases: /lmm
     trigger:
         if player is holding a stick:
-	    	message "Lumos Maxima!"
+            message "Lumos Maxima!"
             apply night vision 250 to the player
 
 command /nox:
     trigger:
         if player is holding a stick:
-	    	message "Nox!"
+            message "Nox!"
             remove night vision from the player
 
 command /crucio:
     aliases: /cr
     trigger:
         if player is holding a stick:
-	    	message "Crucio!"
+            message "Crucio!"
             make player shoot item projectile of snowball at speed 1.5
             on damage:
-	        	projectile exists
+                projectile exists
                 projectile is snowball
                 apply wither 5 to all players within 5 meters of the event-location
 
@@ -106,8 +106,8 @@ command /expelliarmous:
             message "Expelliarmous!"
             make player shoot item projectile of snowball at speed 1.5
             on damage:
-	        	projectile exits
-				projectile is snowball
+                projectile exits
+                projectile is snowball
                 drop all items in the inventory of all players within 5 meters of the event-location
 
 command /reparo:
@@ -117,7 +117,7 @@ command /reparo:
             message "Reparo!"
             make player shoot item projectile of snowball at speed 0.5
             on damage:
-	        	projectile exists
+                projectile exists
                 projectile is snowball
                 repair tool of all players within 1 meters of the event-location
 
@@ -128,7 +128,7 @@ command /aberto:
             message "Alohomora!"
             make player shoot item projectile of egg at speed 1.5
             on damage:
-	        	projectile exists
+                projectile exists
                 projectile is egg
                 toggle the block at event-location
 
@@ -143,10 +143,10 @@ command /anapneo:
     aliases: /an
     trigger:
         if player is holding a stick:
-	    message "Anapneo!"
+        message "Anapneo!"
             make player shoot item projectile egg
             on damage:
-	        	projectile exists
+                projectile exists
                 projectile is eggs
                 remove nausea from all players within 2 meters of the event-location
 
@@ -154,195 +154,195 @@ command /araniaexumai:
     aliases: /ae
     trigger: 
         if player is holding a stick:
-	    message "Arania Exumai!"
-	    make player shoot item projectile snowball
-	    on damage:
-	        projectile exists
-	        projectile is eggs
-			kill all spiders within 10 meters of the event-location
+        message "Arania Exumai!"
+        make player shoot item projectile snowball
+        on damage:
+            projectile exists
+            projectile is eggs
+            kill all spiders within 10 meters of the event-location
 
 command /arrestomomentum:
     aliases: /am
     trigger:
         if player is holding a stick:
-	    message "Arresto Momentum!"
-	    make player shoot item projectile snowball
-	    on damage:
-	        projectile exists
-	        projectile is snowball
-			apply slowness 3 to all players within 20 meters of the event-location
-			apply feather falling to all players within 20 meters of the event-location
+        message "Arresto Momentum!"
+        make player shoot item projectile snowball
+        on damage:
+            projectile exists
+            projectile is snowball
+            apply slowness 3 to all players within 20 meters of the event-location
+            apply feather falling to all players within 20 meters of the event-location
 
 command /ascendio:
     aliases: /asc
     trigger:
         if player is holding a stick:
-	    	message "Ascendio!"
-	    	apply levitation 250 to target
+            message "Ascendio!"
+            apply levitation 250 to target
 
 command /avifors:
     aliases: /av, /avis
     trigger:
         if player is holding a stick:
-	    	message "Avis!"
-	    	spawn a parrot 3 meters above the player
+            message "Avis!"
+            spawn a parrot 3 meters above the player
 
 command /brackiumemendo:
     aliases: /bm
     trigger:
         if player is holding a stick:
-	    	message "Brackium Emendo!"
-            	make player shoot item projectile egg
-            	on damage:
-	        		projectile exists
-                	projectile is eggs
-                	remove nausea from all players within 2 meters of the event-location
+            message "Brackium Emendo!"
+                make player shoot item projectile egg
+                on damage:
+                    projectile exists
+                    projectile is eggs
+                    remove nausea from all players within 2 meters of the event-location
 
 command /caveinimicum:
     aliases: /ci
     trigger:
         if player is holding a stick:
-	    message "Cave Inimicum!"
-	    hide the player from all players
+        message "Cave Inimicum!"
+        hide the player from all players
 
 command /confringo:
     aliases: /cf
     trigger:
         if player is holding a stick:
-	    message "Confringo!"
-	    make player shoot item projectile slimeball
-	    on damage:
-	        projectile exists
-	        projectile is slimeball
-			create explosion with force 5 at event-location
+        message "Confringo!"
+        make player shoot item projectile slimeball
+        on damage:
+            projectile exists
+            projectile is slimeball
+            create explosion with force 5 at event-location
 
 command /confundo:
     aliases: /cnf
     trigger:
         if player is holding a stick:
-	    	message "Confundo!"
-	    	make player shoot item projectile egg
-	    	on damage:
-	        	projectile exists
-				projectile is egg
-				apply nausea 2 to all players within 5 meters of the event-location
+            message "Confundo!"
+            make player shoot item projectile egg
+            on damage:
+                projectile exists
+                projectile is egg
+                apply nausea 2 to all players within 5 meters of the event-location
 
 command /deprimo:
     aliases: /dp
     trigger:
         if player is holding a stick:
-	    message "Deprimo!"
-	    make player shoot item projectile slimeball
-	    on damage:
-	        projectile exists
-	        projectile is slimeball
-		create explosion with force 2 at event-location
+        message "Deprimo!"
+        make player shoot item projectile slimeball
+        on damage:
+            projectile exists
+            projectile is slimeball
+        create explosion with force 2 at event-location
 
 command /descendo:
     aliases: /dsc
     trigger:
         if player is holding a stick:
-	    	message "Descendo!"
-	    	make player shoot item projectile egg
-	    	on damage:
-	        	projectile exists
-	        	projectile is egg
-	        	remove levitation from all players within 10 meters of the event-location
+            message "Descendo!"
+            make player shoot item projectile egg
+            on damage:
+                projectile exists
+                projectile is egg
+                remove levitation from all players within 10 meters of the event-location
 
 command /diffindo:
     aliases: /dif
     trigger:
         if player is holding a stick:
-	    	message "Diffindo!"
-	    	make player shoot item projectile arrow
-	    	on damage:
-				projectile exists
-				projectile is arrow
+            message "Diffindo!"
+            make player shoot item projectile arrow
+            on damage:
+                projectile exists
+                projectile is arrow
 
 command /draconifors:
     aliases: /drc
     trigger:
         if player is holding a stick:
-			message "Draconifors!"
-			spawn an ender_dragon 20 meters above player
+            message "Draconifors!"
+            spawn an ender_dragon 20 meters above player
 
 command /duckilifors:
     aliases: /drc
     trigger:
         if player is holding a stick:
-			message "Duckilifors!"
-			spawn a chicken 2 meters above player
+            message "Duckilifors!"
+            spawn a chicken 2 meters above player
 
 command /duro:
     aliases: /dr
     trigger:
         if player is holding a stick:
-	    	message "Duro!"
-	    	make player shoot item projectile egg
-	    on damage:
-	        projectile exists
-	        projectile is egg
-			enchant the player's tool with sharpness 5
+            message "Duro!"
+            make player shoot item projectile egg
+        on damage:
+            projectile exists
+            projectile is egg
+            enchant the player's tool with sharpness 5
 
 command /engorgio:
     aliases: /en
     trigger:
         if player is holding a stick:
-	    	message "Engorgio!"
-	    	apply nausea 3 to player
+            message "Engorgio!"
+            apply nausea 3 to player
 
 command /episkey:
     aliases: /ep
     trigger:
         if player is holding a stick:
-	    	message "Episky!"
-	    	make player shoot item projectile strong_healing
+            message "Episky!"
+            make player shoot item projectile strong_healing
 
 command /erecto:
     aliases: /erect
     trigger:
         if player is holding a stick:
-	    	message "Erecto!"
-	    	message "You don't have enough material to build a tent."
+            message "Erecto!"
+            message "You don't have enough material to build a tent."
 
 command /evanesce:
     aliases: /eve, /evanesco
     trigger:
         if player is holding a stick:
-	    	message "Evanesce!"
-	    	make player shoot item projectile egg
-	    	on damage:
-	        	projectile exists
-	        	projectile is egg
+            message "Evanesce!"
+            make player shoot item projectile egg
+            on damage:
+                projectile exists
+                projectile is egg
                 set the block in front of the player to air
 
 command /evertestatum:
     aliases: /es
     trigger:
         if player is holding a stick:
-	    	message "Everte Statum!"
-	    	make player shoot item projectile slimeball
-	    	on damage:
-	        	projectile exists
-	        	projectile is slimeball
-			apply levitation 5 to all players within 2 meters of the event-location
+            message "Everte Statum!"
+            make player shoot item projectile slimeball
+            on damage:
+                projectile exists
+                projectile is slimeball
+            apply levitation 5 to all players within 2 meters of the event-location
 
 command /expectopatronum:
      aliases: /ep
      trigger:
         if player is holding a stick:
-	    	message "Expecto Patronum!"
-	    	make player shoot item projectile slimeball
-	    	on damage:
-	        	projectile exists
-	        	projectile is slimeball
-			kill all enderman within 20 meters of the event-location
+            message "Expecto Patronum!"
+            make player shoot item projectile slimeball
+            on damage:
+                projectile exists
+                projectile is slimeball
+            kill all enderman within 20 meters of the event-location
 
 command /apparate <x> <y> <z>:
     aliases: /app
-	trigger:
-	    message "Apparating ..."
-		make player execute command "/tp <x> <y> <z>"
+    trigger:
+        message "Apparating ..."
+        make player execute command "/tp <x> <y> <z>"
 
 command /firstyear <player>:
     add "Skript.firstyear" to player's permissions
@@ -363,21 +363,21 @@ command /adult <player>:
 
 on chat:
     if player has permission "Skript.firstyear":
-    	set chat format to "First year studenet [player]: [message]"
+        set chat format to "First year studenet [player]: [message]"
     if player has permission "Skript.secondyear":
-    	set chat format to "Second year student [player]: [message]"
+        set chat format to "Second year student [player]: [message]"
     if player has permission "Skript.thirdyear":
-    	set chat format to "Third year student [player]: [message]"
+        set chat format to "Third year student [player]: [message]"
     if player has permission "Skript.fourthyear":
-    	set chat format to "Fourth year student [player]: [message]"
+        set chat format to "Fourth year student [player]: [message]"
     if player has permission "Skript.fifthyear":
-    	set chat format to "Fifth year student [player]: [message]"
+        set chat format to "Fifth year student [player]: [message]"
     if player has permission "Skript.sixthyear":
-    	set chat format to "Sixth year student [player]: [message]"
+        set chat format to "Sixth year student [player]: [message]"
     if player has permission "Skript.secondyear":
-    	set chat format to "Seventh year student [player]: [message]"
+        set chat format to "Seventh year student [player]: [message]"
     if player has permission "Skript.adult":
-    	set chat format to "Wizard/Witch [player]: [message]"
+        set chat format to "Wizard/Witch [player]: [message]"
     else:
         set chat format to "Muggle [player]: [message]"
 
@@ -387,7 +387,9 @@ on disconnect:
 at 10pm in "ul_Hogwarts1.0":
     broadcast "Lights out!"
 on endermen pickup:
-	cancel event
+    cancel event
 
 on first join:
-	message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
+    message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
+
+
