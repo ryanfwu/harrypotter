@@ -423,7 +423,7 @@ command /apparate <x> <y> <z>:
 	aliases: /app
 	trigger:
 		message "Apparating ..."
-		make player execute command "/tp <x> <y> <z>"
+		make player execute command "/tp %x% %y% %z%"
 
 command /firstyear <player>:
 	add "Skript.firstyear" to player's permissions
