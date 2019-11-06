@@ -1,10 +1,8 @@
 on place of tnt:
 	cancel the event
-	message "Warning: Do not place TNT blocks."
 
 on explode:
 	cancel the event
-  	message "Warning: Do not explode anything."
 
 command /enter:
 	trigger:
@@ -18,8 +16,8 @@ command /avadakedavra:
 	aliases: /ak
 	trigger:
 		if player is holding a stick:
-		message "Avada Kedavra!"
-		make player shoot of slimeball at speed 1.5
+			message "Avada Kedavra!"
+			make player shoot slimeball at speed 1.5
 		on damage:
 			projectile exists
 			projectile is a slimeball
@@ -50,11 +48,11 @@ command /bombarda:
 	aliases: /bomb
 	trigger:
 		if player is holding a stick:
-		message "Bombarda!"
-		make player shoot of egg at speed 1.5
+			message "Bombarda!"
+			make player shoot of egg at speed 1.5
 			on damage:
-		projectile exists
-		projectile is egg
+				projectile exists
+				projectile is egg
 				create explosion with force 3 at event-location
 
 command /bombardamaxima:
@@ -143,7 +141,7 @@ command /anapneo:
 	aliases: /an
 	trigger:
 		if player is holding a stick:
-		message "Anapneo!"
+			message "Anapneo!"
 			make player shoot egg
 			on damage:
 				projectile exists
@@ -154,24 +152,24 @@ command /araniaexumai:
 	aliases: /ae
 	trigger: 
 		if player is holding a stick:
-		message "Arania Exumai!"
-		make player shoot snowball
-		on damage:
-			projectile exists
-			projectile is eggs
-			kill all spiders within 10 meters of the event-location
+			message "Arania Exumai!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is eggs
+				kill all spiders within 10 meters of the event-location
 
 command /arrestomomentum:
 	aliases: /am
 	trigger:
 		if player is holding a stick:
-		message "Arresto Momentum!"
-		make player shoot snowball
-		on damage:
-			projectile exists
-			projectile is snowball
-			apply slowness 3 to all players within 20 meters of the event-location
-			apply feather falling to all players within 20 meters of the event-location
+			message "Arresto Momentum!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is snowball
+				apply slowness 3 to all players within 20 meters of the event-location
+				apply feather falling to all players within 20 meters of the event-location
 
 command /ascendio:
 	aliases: /asc
@@ -202,19 +200,19 @@ command /caveinimicum:
 	aliases: /ci
 	trigger:
 		if player is holding a stick:
-		message "Cave Inimicum!"
-		hide the player from all players
+			message "Cave Inimicum!"
+			hide the player from all players
 
 command /confringo:
 	aliases: /cf
 	trigger:
 		if player is holding a stick:
-		message "Confringo!"
-		make player shoot slimeball
-		on damage:
-			projectile exists
-			projectile is slimeball
-			create explosion with force 5 at event-location
+			message "Confringo!"
+			make player shoot slimeball
+			on damage:
+				projectile exists
+				projectile is slimeball
+				create explosion with force 5 at event-location
 
 command /confundo:
 	aliases: /cnf
@@ -231,12 +229,12 @@ command /deprimo:
 	aliases: /dp
 	trigger:
 		if player is holding a stick:
-		message "Deprimo!"
-		make player shoot slimeball
-		on damage:
-			projectile exists
-			projectile is slimeball
-		create explosion with force 2 at event-location
+			message "Deprimo!"
+			make player shoot slimeball
+			on damage:
+				projectile exists
+				projectile is slimeball
+				create explosion with force 2 at event-location
 
 command /descendo:
 	aliases: /dsc
@@ -279,10 +277,10 @@ command /duro:
 		if player is holding a stick:
 			message "Duro!"
 			make player shoot egg
-		on damage:
-			projectile exists
-			projectile is egg
-			enchant the player's tool with sharpness 5
+			on damage:
+				projectile exists
+				projectile is egg
+				enchant the player's tool with sharpness 5
 
 command /engorgio:
 	aliases: /en
@@ -325,7 +323,7 @@ command /evertestatum:
 			on damage:
 				projectile exists
 				projectile is slimeball
-			apply levitation 5 to all players within 2 meters of the event-location
+				apply levitation 5 to all players within 2 meters of the event-location
 
 command /expectopatronum:
 	 aliases: /ep
@@ -336,7 +334,7 @@ command /expectopatronum:
 			on damage:
 				projectile exists
 				projectile is snowball
-			kill all enderman within 20 meters of the event-location
+				kill all enderman within 20 meters of the event-location
 
 command /ferula:
 	aliases: /fr
@@ -496,9 +494,9 @@ command /imperio:
 				projectile exists
 				projectile is a snowball
 				set {_imperio} to 1
-				while target exists and {_imperio} equals to 1:
-            				make target pathfind to player with speed 1
-            				wait 3 ticks
+				while target exists and {_imperio} is 1:
+            		make target pathfind to player with speed 1
+            		wait 3 ticks
 
 command /unimperio:
 	aliases: /uni
@@ -575,6 +573,20 @@ command /langlock:
 				projectile is a snowball
 				message "You have been langlocked!" to target
 
+command /lapifors:
+	aliases: /lf
+	trigger:
+		if player is holding a stick:
+			message "Lapifors!"
+			spawn a rabbit in front of the player
+
+command /levicorpus:
+	aliases: /lev
+	trigger:
+		if player is holding a stick:
+			message "Levicorpus!"
+			
+
 command /apparate <x> <y> <z>:
 	aliases: /app
 	trigger:
@@ -621,13 +633,6 @@ on chat:
 on disconnect:
 	broadcast "%player% has quit the game."
 
-at 10pm in "ul_Hogwarts1.0":
-	broadcast "Lights out!"
-on endermen pickup:
-	cancel event
-
 on first join:
 	message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
-
-
 
