@@ -1,3 +1,7 @@
+on place of tnt:
+   cancel the event
+   message "Warning: Do not place TNT blocks."
+
 command /enter:
    trigger:
        world ul_Hogwarts1.0
@@ -9,9 +13,9 @@ command /wand:
 command /avadakedavra:
 	aliases: /ak
 	trigger:
-            if player is holding a stick:
-	        message "Avada Kedavra!"
-            make player shoot item projectile of slimeball at speed 1.5
+		if player is holding a stick:
+		message "Avada Kedavra!"
+		make player shoot item projectile of slimeball at speed 1.5
 		on damage:
 		    projectile exists
 		    projectile is a slimeball
