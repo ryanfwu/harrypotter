@@ -137,7 +137,7 @@ command /aguamenti:
 	trigger:
 		if player is holding a stick:
 			message "Aguamenti!"
-			set the block in front of the victim to water
+			set the block in front of the player to water
 
 command /anapneo:
 	aliases: /an
@@ -552,6 +552,28 @@ command /locomotorwibbly:
 				projectile exists
 				projectile is an egg
 				apply nausea 5 to target for 10 seconds
+
+command /lacarnuminflamari:
+	aliases: /li
+	trigger:
+		if player is holding a stick:
+			message "Lacarnum Inflamari!"
+			make player shoot snowball at speed 3
+			on damage:
+				projectile exists
+				projectile is a snowball
+				ignite the target
+
+command /langlock:
+	aliases: /ll
+	trigger:
+		if player is holding a stick:
+			message "Langlock!"
+			make player shoot snowball at speed 3
+			on damage:
+				projectile exists
+				projectile is a snowball
+				message "You have been langlocked!" to target
 
 command /apparate <x> <y> <z>:
 	aliases: /app
