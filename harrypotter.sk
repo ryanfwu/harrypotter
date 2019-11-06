@@ -542,7 +542,16 @@ command /incendio:
 			message "Incendio!"
 			make player shoot fireball at speed 10
 
-command /
+command /locomotorwibbly:
+	aliases: /lw
+	trigger:
+		if player is holding a stick:
+			message "Locomotor Wibbly!"
+			make player shoot egg at speed 2
+			on damage:
+				projectile exists
+				projectile is an egg
+				apply nausea 5 to target for 10 seconds
 
 command /apparate <x> <y> <z>:
 	aliases: /app
