@@ -7,7 +7,7 @@ on explode:
   	message "Warning: Do not explode anything."
 
 command /enter:
-   trigger:
+	trigger:
 	   world ul_Hogwarts1.0
 
 command /wand:
@@ -377,9 +377,47 @@ command /flagrate:
 	aliases: /flg
 	trigger:
 		if player is holding a stick:
+			message "Flagarate!"
 			set the block two meters in front of the player to fire
 			
+command /flipendo:
+	aliases: /fl
+	trigger:
+		if player is holding a stick:
+			message "Flipendo!"
+			make player shoot snowball at speed 10
+			on damage:
+				projectile exists
+				projectile is a snowball
+				give the target levitation 100 for 5 seconds
 
+command /flipendoduo:
+	aliases: /fld
+	trigger:
+		if player is holding a stick:
+			message "Flipendo Duo!"
+			make player shoot snowball at speed 10
+			on damage:
+				projectile exists
+				projectile is a snowball
+				give the target levitation 200 for 8 seconds			
+
+command /flipendotria:
+	aliases: /flt
+	trigger:
+		if player is holding a stick:
+			message "Flipendo Tria!"
+			make player shoot snowball at speed 10
+			on damage:
+				projectile exists
+				projectile is a snowball
+				give the target levitation 255 for 10 seconds
+
+command /fumos:
+	aliases: /fmo, /nebulus, /neb
+	trigger
+		if player is holding a stick:
+			display 20000 cloud particles at location of player
 
 command /apparate <x> <y> <z>:
 	aliases: /app
