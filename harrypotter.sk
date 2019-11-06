@@ -585,7 +585,12 @@ command /levicorpus:
 	trigger:
 		if player is holding a stick:
 			message "Levicorpus!"
-			
+			make target fly for 5 seconds
+
+command /liberacorpus:
+	aliases: /lib
+	trigger:
+		force all players to stop flying
 
 command /apparate <x> <y> <z>:
 	aliases: /app
