@@ -1,70 +1,72 @@
+# function nearestEntity(loc: location) :: entity :
+	# set {_nearest} to first element of all entities in world of {_loc}
+	# loop all entities in world of {_loc}:
+		# if distance between loop-entity and {_loc} is less than distance between {_loc} and {_nearest}:
+			# set {_nearest} to loop-entity
+	# return {_nearest}
+
+set {_command} to ""
+
+function ignite(b: blocks):
+	loop {_b::*}:
+		set {_p::*} to blocks in radius 1 of loop-value where [location of block input is not location of loop-value]->[block input is air]
+		set block at location of a random element out of {_p::*} to fire
+
 on place of tnt:
 	cancel the event
 
 on explode:
 	cancel the event
 
-command /enter:
-	trigger:
-	   world ul_Hogwarts1.0
-
 command /wand:
-   trigger:
-	   give player a stick
+	trigger:
+		give player a stick
 
 command /avadakedavra:
 	aliases: /ak
 	trigger:
 		if player is holding a stick:
 			message "Avada Kedavra!"
-			make player shoot slimeball at speed 1.5
-		on damage:
-			projectile exists
-			projectile is a slimeball
-			display 100 Slime particles at the targeted block offset by 1, 1, 1
-			display 300 Slime particles at the targeted block offsett by -1, 0, -1
-			display 300 Slime particles at the targeted block offset by 1, 0, -1
-			display 300 Slime particles at the targeted block offset by -1, 0, 1
-			display 100 Slime particles at the targeted block offset by 0, 1, 0
-			display 100 Slime particles at the targeted block offset by -1, 1, -1
-			display 100 Slime particles at the targeted block offset by 1, 1, -1
-			display 100 Slime particles at the targeted block offset by -1, 1, 1
-			display 300 Slime particles at the targeted block offset by 0, 0, 0
-			kill all players within 5 meters of the event
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				# drawSphere style 1, particle "slime", center player, radius 2, solid true, density 75
+				kill all players within 5 meters of the projectile
 
 command /wingardiumleviosa:
 	aliases: /wl
 	trigger:
 		if player is holding a stick:
 			message "Wingardium Leviosa!"
-			make player shoot of glass at speed 1.5
+			make player shoot snowball
 			play raw sound "mob.zombiepig.zpigdeath" at player with pitch 0.6 volume 10
 			on damage:
-		projectile exists
-		projectile is glass
-		apply levitation 3 to all players within 5 meters of the event-location
+				projectile exists
+				projectile is snowball
+				apply levitation 3 to all players within 5 meters of the projectile
 
 command /bombarda:
 	aliases: /bomb
 	trigger:
 		if player is holding a stick:
 			message "Bombarda!"
-			make player shoot of egg at speed 1.5
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				create explosion with force 3 at event-location
+				projectile is snowball
+				create explosion with force 3 in front of the player
 
 command /bombardamaxima:
 	aliases: /bm, /expulso
 	trigger:
 		if player is holding a stick:
 			message "Bombarda Maxima!"
-			make player shoot of egg at speed 1.5
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				create explosion with force 10 at event-location
+				projectile is snowball
+				create explosion with force 10 in front of the player
 
 command /lumos:
 	aliases: /lm
@@ -73,12 +75,26 @@ command /lumos:
 			message "Lumos!"
 			apply night vision 50 to the player
 
+command /lumosduo:
+	aliases: /lm
+	trigger:
+		if player is holding a stick:
+			message "Lumos!"
+			apply night vision 150 to the player
+
 command /lumosmaxima:
 	aliases: /lmm
 	trigger:
 		if player is holding a stick:
 			message "Lumos Maxima!"
 			apply night vision 250 to the player
+
+command /lumossolem:
+	aliases: /lm
+	trigger:
+		if player is holding a stick:
+			message "Lumos!"
+			apply night vision 200 to the player
 
 command /nox:
 	trigger:
@@ -91,62 +107,62 @@ command /crucio:
 	trigger:
 		if player is holding a stick:
 			message "Crucio!"
-			make player shoot of snowball at speed 1.5
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is snowball
-				apply wither 5 to all players within 5 meters of the event-location
+				apply wither 5 to target
 
 command /expelliarmous:
 	aliases: /relashio
 	trigger:
 		if player is holding a stick:
 			message "Expelliarmous!"
-			make player shoot of snowball at speed 1.5
+			make player shoot snowball
 			on damage:
 				projectile exits
 				projectile is snowball
-				drop all items in the inventory of all players within 5 meters of the event-location
+				drop all items in the inventory of the target
 
 command /reparo:
 	aliases: /rp, /occulusreparo, /or, /harmonianecterepassus, /hnp
 	trigger:
 		if player is holding a stick:
 			message "Reparo!"
-			make player shoot of snowball at speed 0.5
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is snowball
-				repair tool of all players within 1 meters of the event-location
+				repair tool of target
 
 command /aberto:
 	aliases: /abe, /alohomora, /alo, /colloportus, /col, /cistemaperio, /ca, /dissendium, /did
 	trigger:
 		if player is holding a stick:
 			message "Alohomora!"
-			make player shoot of egg at speed 1.5
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				toggle the block at event-location
+				projectile is snowball
+				toggle the block at location of target block
 
 command /aguamenti:
 	aliases: /aq, /aquaeructo
 	trigger:
 		if player is holding a stick:
 			message "Aguamenti!"
-			set the block in front of the player to water
+			set the block above the block in front of the player to water
 
 command /anapneo:
 	aliases: /an
 	trigger:
 		if player is holding a stick:
 			message "Anapneo!"
-			make player shoot egg
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is eggs
-				remove nausea from all players within 2 meters of the event-location
+				projectile is snowballs
+				remove nausea from the target
 
 command /araniaexumai:
 	aliases: /ae
@@ -156,8 +172,8 @@ command /araniaexumai:
 			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is eggs
-				kill all spiders within 10 meters of the event-location
+				projectile is a snowball
+				kill all spiders within 10 meters of the projectile
 
 command /arrestomomentum:
 	aliases: /am
@@ -168,15 +184,15 @@ command /arrestomomentum:
 			on damage:
 				projectile exists
 				projectile is snowball
-				apply slowness 3 to all players within 20 meters of the event-location
-				apply feather falling to all players within 20 meters of the event-location
+				apply slowness 3 to all players within 20 meters of the projectile
+				apply feather falling to all players within 20 meters of the projectile
 
 command /ascendio:
 	aliases: /asc
 	trigger:
 		if player is holding a stick:
 			message "Ascendio!"
-			apply levitation 250 to target
+			push the player upwards at speed 100
 
 command /avifors:
 	aliases: /av, /avis
@@ -190,11 +206,11 @@ command /brackiumemendo:
 	trigger:
 		if player is holding a stick:
 			message "Brackium Emendo!"
-				make player shoot egg
-				on damage:
-					projectile exists
-					projectile is eggs
-					remove nausea from all players within 2 meters of the event-location
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is snowballs
+				remove nausea from all players within 2 meters of the projectile
 
 command /caveinimicum:
 	aliases: /ci
@@ -208,61 +224,54 @@ command /confringo:
 	trigger:
 		if player is holding a stick:
 			message "Confringo!"
-			make player shoot slimeball
-			on damage:
-				projectile exists
-				projectile is slimeball
-				create explosion with force 5 at event-location
+			make player shoot fireball
 
 command /confundo:
 	aliases: /cnf
 	trigger:
 		if player is holding a stick:
 			message "Confundo!"
-			make player shoot egg
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				apply nausea 2 to all players within 5 meters of the event-location
+				projectile is snowball
+				apply nausea 2 to all players within 5 meters of the projectile
 
 command /deprimo:
 	aliases: /dp
 	trigger:
 		if player is holding a stick:
 			message "Deprimo!"
-			make player shoot slimeball
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is slimeball
-				create explosion with force 2 at event-location
+				projectile is snowball
+				create explosion with force 2 at the projectile
 
 command /descendo:
 	aliases: /dsc
 	trigger:
 		if player is holding a stick:
 			message "Descendo!"
-			make player shoot egg
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				remove levitation from all players within 10 meters of the event-location
+				projectile is snowball
+				remove levitation from all players within 10 meters of the projectile
 
 command /diffindo:
 	aliases: /dif
 	trigger:
 		if player is holding a stick:
 			message "Diffindo!"
-			make player shoot arrow
-			on damage:
-				projectile exists
-				projectile is arrow
+			shoot arrow from player
 
 command /draconifors:
 	aliases: /drc
 	trigger:
 		if player is holding a stick:
 			message "Draconifors!"
-			spawn an ender_dragon 20 meters above player
+			spawn an enderdragon 20 meters above player
 
 command /duckilifors:
 	aliases: /drc
@@ -276,11 +285,11 @@ command /duro:
 	trigger:
 		if player is holding a stick:
 			message "Duro!"
-			make player shoot egg
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
-				enchant the player's tool with sharpness 5
+				projectile is snowball
+				enchant the player's tool with unbreaking 3
 
 command /engorgio:
 	aliases: /en
@@ -294,7 +303,7 @@ command /episkey:
 	trigger:
 		if player is holding a stick:
 			message "Episky!"
-			make player shoot strong_healing
+			apply regeneration of tier 20 to the player for 10 seconds
 
 command /erecto:
 	aliases: /erect
@@ -308,10 +317,10 @@ command /evanesce:
 	trigger:
 		if player is holding a stick:
 			message "Evanesce!"
-			make player shoot egg
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is egg
+				projectile is snowball
 				set the block in front of the player to air
 
 command /evertestatum:
@@ -319,22 +328,22 @@ command /evertestatum:
 	trigger:
 		if player is holding a stick:
 			message "Everte Statum!"
-			make player shoot slimeball
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is slimeball
-				apply levitation 5 to all players within 2 meters of the event-location
+				projectile is snowball
+				apply levitation 5 to all players within 2 meters of the projectile
 
 command /expectopatronum:
-	 aliases: /ep
-	 trigger:
+	aliases: /ep
+	trigger:
 		if player is holding a stick:
 			message "Expecto Patronum!"
 			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is snowball
-				kill all enderman within 20 meters of the event-location
+				kill all enderman within 20 meters of the projectile
 
 command /ferula:
 	aliases: /fr
@@ -352,16 +361,23 @@ command /fiantoduri:
 			message "Fianto Duri!"
 			hide the player from all players
 
+command /reveliofianto:
+	aliases: /rf
+	trigger:
+		if player is holding a stick:
+			message "Revelio Fianto!"
+			reveal all players
+
 command /finestra:
 	aliases: /fin
 	trigger:
 		if player is holding a stick:
 			message "Finestra!"
-			make player shoot arrow
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is an arrow
-				if target block is a glass:
+				projectile is a snowball
+				if target block is glass:
 					set target block to air
 
 command /finiteincantatem:
@@ -369,72 +385,79 @@ command /finiteincantatem:
 	trigger:
 		if player is holding a stick:
 			message "Finite Incantatem!"
-			remove all effects from all players within 10 meters to the player
-			
+			remove poison from the player
+			remove slowness from the player
+			remove weakness from the player
+			remove blindness from the player
+			remove invisibility from the player
+			remove nausea from the player
+
 command /flagrate:
 	aliases: /flg
 	trigger:
 		if player is holding a stick:
 			message "Flagarate!"
-			set the block two meters in front of the player to fire
+			ignite(the block in front of the player)
 			
 command /flipendo:
 	aliases: /fl
 	trigger:
 		if player is holding a stick:
 			message "Flipendo!"
-			make player shoot snowball at speed 10
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is a snowball
-				give the target levitation 100 for 5 seconds
+				make target fly for 5 seconds
 
 command /flipendoduo:
 	aliases: /fld
 	trigger:
 		if player is holding a stick:
 			message "Flipendo Duo!"
-			make player shoot snowball at speed 10
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is a snowball
-				give the target levitation 200 for 8 seconds			
+				make target fly for 8 seconds			
 
 command /flipendotria:
 	aliases: /flt
 	trigger:
 		if player is holding a stick:
 			message "Flipendo Tria!"
-			make player shoot snowball at speed 10
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is a snowball
-				give the target levitation 255 for 10 seconds
+				make target fly for 10 seconds
 
 command /fumos:
-	aliases: /fmo, /nebulus, /neb
+	aliases: /fm
 	trigger:
 		if player is holding a stick:
 			message "Fumos!"
-			display 20000 cloud particles at location of player
+			broadcast "It's hot around %player%"
+			# drawSphere style 1, particle "cloud", center player, radius 2, density 20
 
 command /fumosduo:
 	aliases: /fmd
 	trigger:
 		if player is holding a stick:
 			message "Fumos Duo!"
-			display 40000 cloud particles at location of player
+			broadcast "You can't see anything near %player%!"
+			# drawSphere style 1, particle "cloud", center player, radius 2, density 40
 
 command /geminio:
 	aliases: /ge
 	trigger:
 		if player is holding a stick:
 			message "Geminio!"
-			make player shoot slimeball at speed 2
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is a slimeball
-				give player %player's tool%
+				projectile is a snowball
+				give target %target's tool%
 
 command /glacius:
 	aliases: /gl, /glaciusduo, /gld, /glaciustria, /glt
@@ -459,30 +482,31 @@ command /herbivicus:
 	trigger:
 		if player is holding a stick:
 			message "Herbivicus!"
-			loop blocks in radius 20 of player:
-				if loop-block is a sapling:
-					grow a tall oak tree above loop-block
+			give player a sapling
 
 command /homenumrevelio:
 	aliases: /hr
 	trigger:
 		if player is holding a stick:
 			message "Homenum Revelio!"
-			apply effect glowing 1 to all players within 100 meters to the player
+			set {_humans} to 0
+			loop players in radius 40 around player:
+				set {_humans} to {_humans} + 1
+
 
 command /immobulus:
 	aliases: /im
 	trigger:
 		if player is holding a stick:
 			message "Immobulus!"
-			apply effect slowness 20 to all entities within 10 meters to the player
+			apply slowness 255 to player
 
 command /impedimenta:
 	aliases: /ipm
 	trigger:
 		if player is holding a stick:
 			message "Impedimenta!"
-			apply effect slowness 5 to all entities within 10 meters to the player
+			apply slowness 5 to target
 
 command /imperio:
 	aliases: /imp
@@ -494,9 +518,32 @@ command /imperio:
 				projectile exists
 				projectile is a snowball
 				set {_imperio} to 1
-				while target exists and {_imperio} is 1:
-            		make target pathfind to player with speed 1
-            		wait 3 ticks
+				while {_imperio} is 1:
+					if target exists:
+						make target pathfind to player with speed 1
+						wait 3 ticks
+
+command /locomotor:
+	aliases: /lcm, /mobiliarbus, /mbl
+	trigger:
+		if player is holding a stick:
+			message "Locomotor!"
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				set {_loco} to 1
+				while target exists and {_loco} is 1:
+					make target pathfind to player with speed 1
+					wait 3 ticks
+
+command /motor:
+	aliases: /mot
+	trigger:
+		if player is holding a stick:
+			message "Motor!"
+			set {_loco} to 0
+
 
 command /unimperio:
 	aliases: /uni
@@ -514,12 +561,12 @@ command /impervius:
 				if loop-block is water:
 					set loop-block to air
 
-command /inanimatusconjurus <item>:
-	aliases: /ic <item>
+command /inanimatusconjurus:
+	aliases: /ic
 	trigger:
 		if player is holding a stick:
 			message "Inanimatus Conjurus!"
-			make console execute command "give %player% %item%"
+			make console execute command "give %player% bed"
 
 command /incarneous:
 	aliases: /inc
@@ -538,17 +585,17 @@ command /incendio:
 	trigger:
 		if player is holding a stick:
 			message "Incendio!"
-			make player shoot fireball at speed 10
+			set the block above the block in front of the player to lava
 
 command /locomotorwibbly:
 	aliases: /lw
 	trigger:
 		if player is holding a stick:
 			message "Locomotor Wibbly!"
-			make player shoot egg at speed 2
+			make player shoot snowball
 			on damage:
 				projectile exists
-				projectile is an egg
+				projectile is an snowball
 				apply nausea 5 to target for 10 seconds
 
 command /lacarnuminflamari:
@@ -556,7 +603,7 @@ command /lacarnuminflamari:
 	trigger:
 		if player is holding a stick:
 			message "Lacarnum Inflamari!"
-			make player shoot snowball at speed 3
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is a snowball
@@ -567,7 +614,7 @@ command /langlock:
 	trigger:
 		if player is holding a stick:
 			message "Langlock!"
-			make player shoot snowball at speed 3
+			make player shoot snowball
 			on damage:
 				projectile exists
 				projectile is a snowball
@@ -585,59 +632,160 @@ command /levicorpus:
 	trigger:
 		if player is holding a stick:
 			message "Levicorpus!"
-			make target fly for 5 seconds
+			make player shoot snowball
+			on damage:
+				projectile exists
+				projectile is a snowball
+				make target fly
 
 command /liberacorpus:
 	aliases: /lib
 	trigger:
 		force all players to stop flying
 
-command /apparate <x> <y> <z>:
-	aliases: /app
+command /magicusextremos:
+	aliases: /me
 	trigger:
-		message "Apparating ..."
-		make player execute command "/tp %x% %y% %z%"
+		message "You are not powerful enough to cast this spell."
 
-command /firstyear <player>:
-	add "Skript.firstyear" to player's permissions
-command /secondyear <player>:
-	add "Skript.secondyear" to player's permissions
-command /thirdyear <player>:
-	add "Skript.thirdyear" to player's permissions
-command /fourthyear <player>:
-	add "Skript.fourthyear" to player's permissions
-command /fifthyear <player>:
-	add "Skript.fifthyear" to player's permissions
-command /sixthyear <player>:
-	add "Skript.sixthyear" to player's permissions
-command /seventhyear <player>:
-	add "Skript.seventhyear" to player's permissions
-command /adult <player>:
-	add "Skript.adult" to player's permissions
+command /meteolojinxrecanto:
+	aliases: /mr
+	trigger:
+		execute console command "/weather clear"
+
+command /mimblewimble:
+	aliases: /mw
+	trigger:
+		make player shoot snowball
+		on damage:
+			projectile exists
+			projectile is a snowball
+			broadcast "%target% has been tongue tied!"
+
+command /mobilicorpus:
+	aliases: /mbc
+	trigger:
+		message "Mobilicorpus!"
+		make player shoot snowball
+		set {_ticks} to 0
+		while {_ticks} < 100 :
+			if target exists:
+				make target pathfind to player with speed 1
+				wait 3 ticks
+				set {_ticks} to {_ticks} + 1
+
+command /morsmordre:
+	aliases: /mm
+	trigger:
+		message "Morsmorde!"
+		broadcast "The dark mark has been spotted near %player%"
+		
+command /mucusadnauseam:
+	aliases: /man
+	trigger:
+		message "Mucus ad Nauseam!"
+		make player shoot snowball
+		on damage:
+			projectile exists
+			projectile is a snowball
+			apply nausea 5 to target
+
+command /muffliato:
+	aliases: /mf
+	trigger:
+		message "Muffliato!"
+		message "Use /message to talk with others."
+		
+
+command /nebulus:
+	aliases: /nb
+	trigger:
+		message "Nebulus!"
+		broadcast "It's hard to see around %player%"
+		# drawSphere style 1, particle "cloud", center player, radius 2, density 20
+
+command /obliviate:
+	aliases: /ob
+	trigger:
+		broadcast "Somebody can't remember something ..."
+
+command /obscuro:
+	aliases: /obs
+	trigger:
+		make player shoot snowball
+		on damage:
+			projectile exists
+			projectile is a snowball
+			apply blindness 1 to target
+
+
+
+# command /apparate <x> <y> <z>:
+	# aliases: /app
+	# trigger:
+		# message "Apparating ..."
+		# make console execute command "/tp %player% %x% %y% %z%"
+
+# command /firstyear:
+	# trigger:
+		# add "Skript.firstyear" to player's permissions
+# command /secondyear:
+	# trigger:
+		# add "Skript.secondyear" to player's permissions
+# command /thirdyear:
+	# trigger:
+		# add "Skript.thirdyear" to player's permissions
+# command /fourthyear:
+	# trigger:
+		# add "Skript.fourthyear" to player's permissions
+# command /fifthyear:
+	# trigger:
+		# add "Skript.fifthyear" to player's permissions
+# command /sixthyear:
+	# trigger:
+		# add "Skript.sixthyear" to player's permissions
+# command /seventhyear:
+	# trigger:
+		# add "Skript.seventhyear" to player's permissions
+# command /adult:
+	# trigger:
+		# add "Skript.adult" to player's permissions
 
 on chat:
-	if player has permission "Skript.firstyear":
-		set chat format to "First year studenet [player]: [message]"
-	if player has permission "Skript.secondyear":
-		set chat format to "Second year student [player]: [message]"
-	if player has permission "Skript.thirdyear":
-		set chat format to "Third year student [player]: [message]"
-	if player has permission "Skript.fourthyear":
-		set chat format to "Fourth year student [player]: [message]"
-	if player has permission "Skript.fifthyear":
-		set chat format to "Fifth year student [player]: [message]"
-	if player has permission "Skript.sixthyear":
-		set chat format to "Sixth year student [player]: [message]"
-	if player has permission "Skript.secondyear":
-		set chat format to "Seventh year student [player]: [message]"
-	if player has permission "Skript.adult":
-		set chat format to "Wizard/Witch [player]: [message]"
-	else:
-		set chat format to "Muggle [player]: [message]"
+	# if player has permission "Skript.firstyear":
+		# set chat format to "First year studenet [player]: [message]"
+	# if player has permission "Skript.secondyear":
+		# set chat format to "Second year student [player]: [message]"
+	# if player has permission "Skript.thirdyear":	
+		# set chat format to "Third year student [player]: [message]"
+	# if player has permission "Skript.fourthyear":
+		# set chat format to "Fourth year student [player]: [message]"
+	# if player has permission "Skript.fifthyear":
+		# set chat format to "Fifth year student [player]: [message]"
+	# if player has permission "Skript.sixthyear":
+		# set chat format to "Sixth year student [player]: [message]"
+	# if player has permission "Skript.secondyear":
+		# set chat format to "Seventh year student [player]: [message]"
+	# if player has permission "Skript.adult":
+		# set chat format to "Wizard/Witch [player]: [message]"
+	# else:
+		# set chat format to "Muggle [player]: [message]"
+	set chat format to "Wizard/Witch [player]: [message]"
 
 on disconnect:
-	broadcast "%player% has quit the game."
+	broadcast "%player% has either rage quitted or had to do something."
+
+on connect:
+	message "Welcome to HPIrondude. Please go to spawn, take your wand, and jump on the pressure plate."
+
+on teleport:
+	broadcast "%player% has apparated."
 
 on first join:
-	message "Welcome to HPIrondude! Type /wand to get you wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
+	message "Welcome to HPIrondude! Type /wand to get your wand. If you do not spawn in Hogwarts, wait for a server operator to come before attempting to enter the game. You can email the server operators at mailto:1fwurya@hdsb.ca."
 
+on damage:
+	projectile exists
+	projectile is a snowball
+	if {_command} is "avadakedavra":
+		
